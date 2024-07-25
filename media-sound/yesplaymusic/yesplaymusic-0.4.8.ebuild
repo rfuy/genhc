@@ -5,15 +5,26 @@ EAPI=8
 inherit unpacker xdg desktop
 DESCRIPTION="A good-looking third-party NetEase cloud music player ,supporting Windows / macOS / Linux"
 HOMEPAGE="https://github.com/qier222/YesPlayMusic"
-SRC_URI="amd64? ( https://github.com/qier222/YesPlayMusic/releases/download/v${PV}/yesplaymusic_${PV}_amd64.deb )
-arm64? ( https://github.com/qier222/YesPlayMusic/releases/download/v${PV}/yesplaymusic_${PV}_arm64.deb ) "
+SRC_URI="amd64? ( https://github.com/qier222/YesPlayMusic/releases/download/v${PV}-2/yesplaymusic_${PV}_amd64.deb )
+"
+#arm64? ( https://github.com/qier222/YesPlayMusic/releases/download/v${PV}/yesplaymusic_${PV}_arm64.tar.gz ) "
 MY_PN="YesPlayMusic"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
-DEPEND=""
+DEPEND="
+x11-libs/gtk+
+x11-libs/libnotify
+dev-libs/nss
+x11-libs/libXScrnSaver
+x11-libs/libXtst
+x11-misc/xdg-utils
+app-accessibility/at-spi2-core
+
+app-crypt/libsecret
+"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 S=${WORKDIR}
