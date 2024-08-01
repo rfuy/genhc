@@ -33,6 +33,7 @@ src_install () {
 	for size in {16,24,32,48,64,128,256,512,1024}; do
 		doicon -s ${size} usr/share/icons/hicolor/${size}x${size}/apps/${PN}.png
 	done
+	sed -i 's/Categories=Music;/Categories=AudioVideo;/g' usr/share/applications/yesplaymusic.desktop > /dev/null 2>&1
 	domenu  usr/share/applications/yesplaymusic.desktop
 	gunzip usr/share/doc/${PN}/changelog.gz || die
 	dodoc usr/share/doc/${PN}/changelog
